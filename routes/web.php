@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\SitioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Agregando ? podemos hacer que acepte ciertos casos
+//En este caso administrador y cliente
+
+Route::get('/inicio/{tipo?}', [SitioController::class , 'in']);
+
+Route::resource('comentario', ComentarioController::class);
+
+Route::resource('productos', ProductosController::class);
 
 Route::middleware([
     'auth:sanctum',
