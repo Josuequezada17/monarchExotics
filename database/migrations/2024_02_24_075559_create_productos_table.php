@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->string('modelo');
+            $table->string('marca');
+            $table->string('traccion');
+            $table->string('motor');
+            $table->smallInteger('potencia');
+            $table->smallInteger('torque');
+            $table->smallInteger('velocidad_maxima');
+            $table->integer('precio');
+            $table->year('year');
             $table->timestamps();
         });
     }
