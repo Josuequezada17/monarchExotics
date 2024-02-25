@@ -22,6 +22,7 @@ return new class extends Migration
             $table->smallInteger('velocidad_maxima');
             $table->integer('precio');
             $table->year('year');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
