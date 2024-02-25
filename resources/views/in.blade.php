@@ -9,7 +9,8 @@
 
     <body>
 
-        <a href="/contacto-clase">Contacto Clase</a>
+        <a href="{{route('comentario.create')}}">Contacto comentario</a> |
+        <a href="{{route('productos.create')}}">Crear producto</a>
         
         <hr>
         @if ($tipo == null)

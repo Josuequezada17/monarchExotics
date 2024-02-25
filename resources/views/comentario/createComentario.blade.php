@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<a href="/informacion">Informacion</a>
+<a href="/inicio">Informacion</a>
 <a href="{{ route('comentario.index') }}">Listado</a>
 
     @include('parciales.formError')
