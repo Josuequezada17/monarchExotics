@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('landing');
+})->middleware('auth');
+
 //Agregando ? podemos hacer que acepte ciertos casos
 //En este caso administrador y cliente
 
@@ -38,3 +42,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/x/y/demo', function () {
+    return view('landing');
+})->name('landing');

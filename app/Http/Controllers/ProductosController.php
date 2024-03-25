@@ -12,7 +12,8 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Productos::all();
+        return view('productos.indexProductos', compact('productos'));
     }
 
     /**
@@ -28,7 +29,36 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'modelo' => ['required', 'string', 'max:255'],
+            'marca' => ['required', 'string', 'max:255'],
+            'traccion' => 'required',
+            'motor' => ['required', 'string', 'max:255'],
+            'potencia' => 'required|int|min:10|max:2000',
+            'velocidad_maxima' => 'required|int|min:10|max:2000',
+            'torque' => 'required',
+            'precio' => 'required',
+            'year' => 'required',
+            'descripcion' => 'required|string|min:10',
+
+        ]);
+
+        //Guardar datos
+        $productos = new Productos();
+        $productos->modelo = $request->modelo;
+        $productos->marca = $request->marca;
+        $productos->traccion = $request->traccion;
+        $productos->motor = $request->motor;
+        $productos->potencia = $request->potencia;
+        $productos->torque = $request->torque;
+        $productos->velocidad_maxima = $request->velocidad_maxima;
+        $productos->precio = $request->precio;
+        $productos->year = $request->year;
+        $productos->descripcion = $request->descripcion;        
+        $productos->save();
+
+        //Redirección a lista de productos
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -52,7 +82,7 @@ class ProductosController extends Controller
      */
     public function update(Request $request, Productos $productos)
     {
-        //
+        
     }
 
     /**

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<a href="/inicio">Informacion</a>
-<a href="{{ route('comentario.index') }}">Listado</a>
+<x-mi-template>
+
+    <a href="/inicio">Informacion</a>
+    <a href="{{ route('comentario.index') }}">Listado</a>
 
     @include('parciales.formError')
     <form action="{{ route('comentario.store') }}" method="POST">
@@ -43,10 +37,4 @@
 
         <input type="submit" value="Enviar">
     </form>
-
-    //sanitizar inputs
-
-    //Guardar en db
- 
-</body>
-</html>
+</x-mi-template>
